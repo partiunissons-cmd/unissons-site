@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Menu, X, ChevronRight, Heart, Shield, Briefcase, Scale, Search,
   CheckCircle, MessageCircle, ArrowRight, Check, BookOpen, Mail,
-  Calendar, ChevronDown
 } from 'lucide-react';
 
 // ============================================================
@@ -84,9 +83,6 @@ const globalStyles = `
   .pilier-card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:24px; display:flex; flex-direction:column; cursor:pointer; height:100%; transition: box-shadow 0.3s, transform 0.3s; }
   .pilier-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.10); transform: translateY(-4px); }
 
-  .news-card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:28px 32px; transition: box-shadow 0.3s, transform 0.3s; }
-  .news-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
-
   .nav-link { color: rgba(255,255,255,0.88); font-weight:600; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; transition:color 0.2s; }
   .nav-link:hover { color: #FFD700; }
 
@@ -145,10 +141,9 @@ const Navbar = ({ onJoinClick }) => {
     return () => window.removeEventListener('scroll', h);
   }, []);
   const links = [
-    { label:'Notre Approche', href:'#vision'     },
-    { label:'Nos Valeurs',    href:'#themes'     },
-    { label:'Actualités',     href:'#actualites' },
-    { label:'Sondage',        href:'#sondages'   },
+    { label:'Notre Approche', href:'#vision'   },
+    { label:'Nos Valeurs',    href:'#themes'   },
+    { label:'Sondage',        href:'#sondages' },
   ];
   return (
     <nav style={{ position:'fixed', width:'100%', zIndex:50, background: C.blue, boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.25)' : 'none', padding: scrolled ? '12px 0' : '20px 0', transition:'all 0.3s' }}>
@@ -331,64 +326,7 @@ const Features = () => {
   );
 };
 
-// ============================================================
-// Actualités
-// ============================================================
-const NewsSection = () => {
-  const [expanded, setExpanded] = useState(null);
-  const articles = [
-    { date:"10 avril 2026", category:"Manifeste", catBg:'#dbeafe', catText: C.blue, icon:"📋",
-      title:"UNISSONS publie ses premières propositions concrètes",
-      summary:"Notre équipe a finalisé une série de 15 mesures prioritaires sur l'éducation et la santé, fruit de six mois de consultations avec des experts de terrain.",
-      full:"Après six mois de travail collectif avec des enseignants, médecins, juristes et économistes, UNISSONS présente aujourd'hui ses premières propositions concrètes. Ces 15 mesures, testées et chiffrées, constituent le socle de notre programme. Elles couvrent la revalorisation des enseignants, la création de maisons de santé pluridisciplinaires et la simplification administrative. Chaque proposition est accompagnée d'une étude d'impact et d'un calendrier de mise en œuvre réaliste." },
-    { date:"2 avril 2026", category:"Événement", catBg:'#dcfce7', catText:'#166534', icon:"🎤",
-      title:"Première réunion publique à Paris — retour en images",
-      summary:"Plus de 120 personnes ont répondu présent à notre première rencontre citoyenne. Un moment fort, des échanges sincères et une énergie collective remarquable.",
-      full:"Le 2 avril, la salle du 11e arrondissement de Paris s'est remplie bien au-delà de nos espérances. 120 citoyens, venus de tous horizons, ont participé à notre premier débat public. Les échanges ont porté sur l'éducation nationale et la désertification médicale. La prochaine réunion aura lieu le 15 mai à Lyon." },
-    { date:"20 mars 2026", category:"Analyse", catBg:'#fef9c3', catText:'#854d0e', icon:"📊",
-      title:"Pourquoi la défiance envers les institutions est une opportunité",
-      summary:"La méfiance croissante des Français envers leurs institutions n'est pas une fatalité. C'est le terreau fertile d'un renouveau démocratique, si l'on propose des alternatives sérieuses.",
-      full:"Selon le dernier baromètre du CEVIPOF, 71% des Français se disent méfiants envers les partis politiques. UNISSONS ne voit pas dans ce chiffre une menace, mais une invitation — à faire différemment : moins de communication, plus de résultats. Moins d'idéologie, plus de méthode." },
-  ];
-  return (
-    <section id="actualites" style={{ padding:'96px 24px', background: C.gray50 }}>
-      <div style={{ maxWidth:860, margin:'0 auto' }}>
-        <div style={{ textAlign:'center', marginBottom:64 }}>
-          <h2 style={{ fontSize:'clamp(2rem, 4vw, 3rem)', fontWeight:800, color: C.blue, fontFamily:'Outfit, sans-serif', margin:0 }}>Actualités</h2>
-          <p style={{ marginTop:12, fontSize:'1.1rem', color: C.gray500 }}>Suivez l'avancée du mouvement, nos événements et nos analyses.</p>
-          <div style={{ width:96, height:6, background: C.red, borderRadius:3, margin:'20px auto 0' }}/>
-        </div>
-        <div style={{ display:'flex', flexDirection:'column', gap:18 }}>
-          {articles.map((a, i) => (
-            <article key={i} className="news-card">
-              <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:12, flexWrap:'wrap' }}>
-                <span style={{ fontSize:18 }}>{a.icon}</span>
-                <span style={{ background: a.catBg, color: a.catText, fontSize:'0.73rem', fontWeight:700, textTransform:'uppercase', letterSpacing:'0.08em', padding:'3px 10px', borderRadius:999 }}>{a.category}</span>
-                <span style={{ color: C.gray400, fontSize:'0.83rem', display:'flex', alignItems:'center', gap:3 }}><Calendar size={12}/> {a.date}</span>
-              </div>
-              <h3 style={{ fontSize:'1.15rem', fontWeight:700, color: C.gray900, margin:'0 0 8px', lineHeight:1.4 }}>{a.title}</h3>
-              <p style={{ color: C.gray600, lineHeight:1.75, margin:0 }}>{a.summary}</p>
-              {expanded === i && (
-                <div className="fade-up" style={{ marginTop:14, paddingTop:14, borderTop:`1px solid ${C.gray100}` }}>
-                  <p style={{ color: C.gray700, lineHeight:1.8, margin:0 }}>{a.full}</p>
-                </div>
-              )}
-              <button onClick={() => setExpanded(expanded === i ? null : i)}
-                style={{ marginTop:12, display:'flex', alignItems:'center', gap:5, fontSize:'0.83rem', fontWeight:700, color: C.blue, background:'none', border:'none', cursor:'pointer', padding:0, fontFamily:'Plus Jakarta Sans, sans-serif' }}>
-                {expanded === i ? 'Réduire' : 'Lire la suite'}
-                <ChevronDown size={14} style={{ transform: expanded === i ? 'rotate(180deg)' : 'none', transition:'transform 0.2s' }}/>
-              </button>
-            </article>
-          ))}
-        </div>
-        <p style={{ textAlign:'center', marginTop:28, color: C.gray400, fontSize:'0.83rem' }}>
-          Suivez-nous sur{' '}
-          <a href="https://x.com/PartiUnissons" target="_blank" rel="noopener noreferrer" style={{ color: C.blue, fontWeight:600 }}>@PartiUnissons</a> pour ne rien manquer.
-        </p>
-      </div>
-    </section>
-  );
-};
+
 
 // ============================================================
 // Sondage dynamique
@@ -396,15 +334,15 @@ const NewsSection = () => {
 const PollSection = () => {
   const KEY = 'unissons_poll_v1';
   const init = [
-    { id:1, label:"Éducation : L'Excellence pour tous", votes:35, color: C.blue   },
-    { id:2, label:"Santé : L'Accès aux soins garanti",  votes:25, color: C.red    },
-    { id:3, label:"Justice : Sécurité et Efficacité",   votes:20, color:'#d97706' },
-    { id:4, label:"Économie : Valoriser le Travail",    votes:20, color:'#16a34a' },
+    { id:1, label:"Éducation : L'Excellence pour tous", votes:0, color: C.blue   },
+    { id:2, label:"Santé : L'Accès aux soins garanti",  votes:0, color: C.red    },
+    { id:3, label:"Justice : Sécurité et Efficacité",   votes:0, color:'#d97706' },
+    { id:4, label:"Économie : Valoriser le Travail",    votes:0, color:'#16a34a' },
   ];
   const [opts, setOpts]         = useState(init);
   const [voted, setVoted]       = useState(false);
   const [selId, setSelId]       = useState(null);
-  const [total, setTotal]       = useState(100);
+  const [total, setTotal]       = useState(0);
   const [anim,  setAnim]        = useState(false);
 
   useEffect(() => {
@@ -418,7 +356,7 @@ const PollSection = () => {
     setTimeout(() => setAnim(true), 50);
     try { localStorage.setItem(KEY, JSON.stringify({ opts:next, voted:true, selId:id, total:t })); } catch(_) {}
   };
-  const pct = (v) => Math.round((v / total) * 100);
+  const pct = (v) => total === 0 ? 0 : Math.round((v / total) * 100);
 
   return (
     <section id="sondages" style={{ padding:'80px 24px', background:'#fff' }}>
@@ -426,12 +364,12 @@ const PollSection = () => {
         <div className="poll-layout" style={{ background: C.blue, borderRadius:24, overflow:'hidden', display:'flex', boxShadow:'0 10px 40px rgba(0,51,153,0.25)' }}>
           <div className="poll-left" style={{ padding:36, width:270, flexShrink:0, color:'#fff', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', textAlign:'center', borderRight:'1px solid rgba(255,255,255,0.1)' }}>
             <div style={{ padding:14, background:'rgba(255,255,255,0.1)', borderRadius:'50%', marginBottom:16 }}><MessageCircle size={42} color={C.gold}/></div>
-            <h3 style={{ fontSize:'1.7rem', fontWeight:700, margin:'0 0 8px' }}>Consultation</h3>
-            <p style={{ opacity:0.75, fontSize:'0.88rem', lineHeight:1.6, margin:0 }}>Quelle est votre priorité pour la France ?</p>
-            {voted && (
+            <h3 style={{ fontSize:'1.7rem', fontWeight:700, margin:'0 0 8px' }}>Votre avis</h3>
+            <p style={{ opacity:0.75, fontSize:'0.88rem', lineHeight:1.6, margin:0 }}>Quelle est votre priorité pour la France ? Soyez parmi les premiers à voter.</p>
+            {voted && total > 0 && (
               <div style={{ background:'rgba(255,255,255,0.12)', borderRadius:12, padding:'10px 18px', marginTop:18 }}>
                 <p style={{ color: C.gold, fontWeight:700, fontSize:'1.7rem', margin:0 }}>{total.toLocaleString('fr-FR')}</p>
-                <p style={{ color:'#bfdbfe', fontSize:'0.68rem', textTransform:'uppercase', letterSpacing:'0.1em', margin:0 }}>votes enregistrés</p>
+                <p style={{ color:'#bfdbfe', fontSize:'0.68rem', textTransform:'uppercase', letterSpacing:'0.1em', margin:0 }}>{total === 1 ? 'vote enregistré' : 'votes enregistrés'}</p>
               </div>
             )}
           </div>
@@ -541,7 +479,7 @@ const Footer = () => (
       </div>
       <div>
         <h4 style={{ color: C.gold, fontWeight:700, fontSize:'0.72rem', textTransform:'uppercase', letterSpacing:'0.12em', marginBottom:18, marginTop:0 }}>Le Projet</h4>
-        {[['#vision','Le Manifeste'],['#themes','Les 5 Piliers'],['#actualites','Actualités'],['#sondages','Consultation']].map(([href, label]) => (
+        {[['#vision','Le Manifeste'],['#themes','Les 5 Piliers'],['#sondages','Consultation']].map(([href, label]) => (
           <a key={href} href={href} className="footer-link">{label}</a>
         ))}
       </div>
@@ -587,7 +525,6 @@ const App = () => {
       <Hero onJoinClick={toJoin}/>
       <VisionSection/>
       <Features/>
-      <NewsSection/>
       <PollSection/>
       <JoinSection/>
       <Footer/>
