@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { GlobalStyles } from './styles';
-import { Navbar, Footer } from './components/Layout';
-import Home from './pages/Home';
-import PourquoiMaintenant from './pages/PourquoiMaintenant';
-import Rejoindre from './pages/Rejoindre';
-import NosPiliers from './pages/NosPiliers';
-import MentionsLegales from './pages/MentionsLegales';
-import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
-import { C } from './theme';
+import { GlobalStyles } from './styles.jsx';
+import { Navbar, Footer } from './components/Layout.jsx';
+import Home from './pages/Home.jsx';
+import PourquoiMaintenant from './pages/PourquoiMaintenant.jsx';
+import Rejoindre from './pages/Rejoindre.jsx';
+import NosPiliers from './pages/NosPiliers.jsx';
+import MentionsLegales from './pages/MentionsLegales.jsx';
+import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite.jsx';
+import { C } from './theme.js';
 
 const App = () => (
   <BrowserRouter>

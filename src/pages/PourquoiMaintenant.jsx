@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, X as XIcon } from 'lucide-react';
-import { C } from '../theme';
-import { SEO, SectionLabel, GoldBar, Star } from '../components/Shared';
-import { useReveal } from '../styles';
+import { C } from '../theme.js';
+import { SEO, SectionLabel, GoldBar, Star } from '../components/Shared.jsx';
+import { useReveal } from '../styles.jsx';
 
 const PourquoiMaintenant = () => {
   useReveal();

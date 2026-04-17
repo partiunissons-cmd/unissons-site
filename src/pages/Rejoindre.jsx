@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, ArrowRight, ArrowLeft } from 'lucide-react';
-import { C } from '../theme';
-import { SEO, Star, TriSmooth } from '../components/Shared';
-import { useReveal } from '../styles';
+import { C } from '../theme.js';
+import { SEO, Star, TriSmooth } from '../components/Shared.jsx';
+import { useReveal } from '../styles.jsx';
 
 const Rejoindre = () => {
   useReveal();

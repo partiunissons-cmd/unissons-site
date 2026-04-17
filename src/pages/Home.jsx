@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, BookOpen, Heart, Scale, Briefcase, Search, Check } from 'lucide-react';
-import { C } from '../theme';
-import { SEO, Logo, TriSmooth, GoldBar, Star, SectionLabel } from '../components/Shared';
-import { useReveal } from '../styles';
+import { C } from '../theme.js';
+import { SEO, Logo, TriSmooth, GoldBar, Star, SectionLabel } from '../components/Shared.jsx';
+import { useReveal } from '../styles.jsx';
 
 // Compteur d'inscrits (seed à 52 au lancement)
 const COUNTER_SEED = 52;

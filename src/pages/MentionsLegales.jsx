@@ -1,7 +1,7 @@
 import React from 'react';
-import { C } from '../theme';
-import { SEO, SectionLabel } from '../components/Shared';
-import { useReveal } from '../styles';
+import { C } from '../theme.js';
+import { SEO, SectionLabel } from '../components/Shared.jsx';
+import { useReveal } from '../styles.jsx';
 
 const MentionsLegales = () => {
   useReveal();

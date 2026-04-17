@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { C } from './theme';
+import { C } from '../theme.js';
 
 // Filet tricolore dégradé
 export const TriSmooth = ({ w = '100%', h = 2, style = {} }) => (

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Mail } from 'lucide-react';
-import { C } from '../theme';
-import { Logo, TriSmooth } from './Shared';
+import { C } from '../theme.js';
+import { Logo, TriSmooth } from './Shared.jsx';
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
