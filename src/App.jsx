@@ -8,6 +8,7 @@ import Rejoindre from './pages/Rejoindre.jsx';
 import NosPiliers from './pages/NosPiliers.jsx';
 import MentionsLegales from './pages/MentionsLegales.jsx';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite.jsx';
+import IntelligenceArtificielle from './pages/IntelligenceArtificielle.jsx';
 import { C } from './theme.js';
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/pourquoi-maintenant" element={<PourquoiMaintenant />} />
           <Route path="/nos-piliers" element={<NosPiliers />} />
           <Route path="/rejoindre" element={<Rejoindre />} />
+          <Route path="/intelligence-artificielle" element={<IntelligenceArtificielle />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
           <Route path="*" element={<Home />} />
