@@ -24,6 +24,7 @@ export const Navbar = () => {
     ['/', 'Accueil'],
     ['/pourquoi-maintenant', 'Pourquoi maintenant ?'],
     ['/nos-piliers', 'Nos piliers'],
+    ['/intelligence-artificielle', 'IA'],
   ];
 
   return (
@@ -106,7 +107,7 @@ export const Footer = () => (
 
       <div>
         <p style={{ color: C.red, fontSize: '.66rem', fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', marginBottom: 16 }}>Le mouvement</p>
-        {[['/', 'Accueil'], ['/pourquoi-maintenant', 'Pourquoi maintenant ?'], ['/nos-piliers', 'Nos piliers'], ['/rejoindre', 'Rejoindre']].map(([to, l]) => (
+        {[['/', 'Accueil'], ['/pourquoi-maintenant', 'Pourquoi maintenant ?'], ['/nos-piliers', 'Nos piliers'], ['/intelligence-artificielle', 'Intelligence artificielle'], ['/rejoindre', 'Rejoindre']].map(([to, l]) => (
           <Link key={to} to={to} style={{ display: 'block', color: C.textD, fontSize: '.87rem', marginBottom: 10, transition: 'color .2s' }}
             onMouseEnter={e => e.currentTarget.style.color = C.text}
             onMouseLeave={e => e.currentTarget.style.color = C.textD}>{l}</Link>
