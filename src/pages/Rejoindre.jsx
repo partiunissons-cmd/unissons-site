@@ -47,17 +47,6 @@ const Rejoindre = () => {
         background: C.navy,
         position: 'relative', overflow: 'hidden',
       }}>
-        <div style={{
-          position: 'absolute', top: '50%', left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontFamily: "'Fraunces', serif",
-          fontSize: 'clamp(10rem, 25vw, 22rem)',
-          fontWeight: 700, fontStyle: 'italic',
-          color: 'rgba(255,255,255,.02)',
-          whiteSpace: 'nowrap', pointerEvents: 'none',
-          userSelect: 'none', letterSpacing: '-0.05em',
-        }}>2027</div>
-
         <div style={{ maxWidth: 520, margin: '0 auto', position: 'relative', zIndex: 10 }}>
           {state === 'ok' ? (
             // ─────────── CONFIRMATION ───────────

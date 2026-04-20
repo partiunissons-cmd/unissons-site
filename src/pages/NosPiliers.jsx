@@ -1,60 +1,70 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Heart, Scale, Briefcase, Search, Check, ArrowRight } from 'lucide-react';
+import { BookOpen, Users, Heart, Scale, Search, Check, ArrowRight } from 'lucide-react';
 import { C } from '../theme.js';
 import { SEO, SectionLabel, Star } from '../components/Shared.jsx';
 import { useReveal } from '../styles.jsx';
 
 const piliers = [
   {
-    num: 'I', title: 'Éducation', tag: "L'excellence pour tous",
+    num: 'I',
+    title: 'Éducation',
+    tag: 'Socle de tout le reste',
     icon: BookOpen,
-    vision: "L'école doit redevenir le socle de la promesse républicaine.",
-    long: "Nous portons la vision d'une école qui transmet les savoirs fondamentaux avec exigence et bienveillance. Une école qui permet à chaque enfant, quelle que soit son origine, de s'élever, de s'émanciper et de construire son avenir.",
+    vision: "L'école et la formation tout au long de la vie sont le socle sur lequel tout le reste repose.",
+    long: "Nous portons la vision d'une école qui transmet les savoirs fondamentaux avec exigence et bienveillance, et qui forme des citoyens capables de penser par eux-mêmes dans un monde qui évolue vite. La révolution numérique et l'intelligence artificielle bouleversent déjà la nature même des métiers et des compétences. Nous devons préparer nos enfants, mais aussi accompagner les adultes par une formation continue ambitieuse. L'école doit redevenir le lieu où se construit le vivre ensemble, celui où la promesse républicaine se tient pour chacun, quelle que soit son origine.",
     pts: [
       "Revaloriser le rôle central et l'autorité du savoir.",
       "Garantir l'égalité des chances par la maîtrise des fondamentaux.",
-      "Offrir un environnement d'apprentissage serein et stimulant.",
+      "Former tout au long de la vie, face aux mutations technologiques.",
     ],
   },
   {
-    num: 'II', title: 'Santé', tag: "L'humain au cœur",
-    icon: Heart,
-    vision: "La santé ne doit souffrir d'aucune fracture territoriale ni sociale.",
-    long: "Un système de santé solidaire où chaque citoyen trouve une réponse à ses maux. Il est temps de redonner du sens et des moyens à ceux qui nous soignent, et d'assurer une présence médicale dans chaque région.",
-    pts: [
-      "Soutenir et valoriser nos soignants au quotidien.",
-      "Rapprocher la médecine de chaque citoyen.",
-      "Humaniser l'hôpital pour un parcours de soin apaisé.",
-    ],
-  },
-  {
-    num: 'III', title: 'Justice', tag: "Confiance et paix",
-    icon: Scale,
-    vision: "La justice est le ciment de notre pacte social.",
-    long: "Nous œuvrons pour une justice qui dispose des moyens d'agir vite et bien. Restaurer l'autorité de l'institution judiciaire est indispensable pour assurer la tranquillité publique et protéger les plus vulnérables.",
-    pts: [
-      "Renforcer les moyens pour une justice plus agile.",
-      "Garantir la protection de chaque citoyen.",
-      "Assurer une réponse judiciaire claire et équitable.",
-    ],
-  },
-  {
-    num: 'IV', title: 'Économie', tag: "Prospérité partagée",
-    icon: Briefcase,
-    vision: "La prospérité repose sur nos entreprises et ceux qui travaillent.",
-    long: "Notre projet économique vise à créer les conditions de la réussite pour tous. Une croissance responsable, fondée sur le mérite, l'innovation et une juste reconnaissance de l'effort de chacun.",
+    num: 'II',
+    title: 'Les travailleurs',
+    tag: 'Cœur battant de la France',
+    icon: Users,
+    vision: "La majorité silencieuse travaille. Elle mérite d'être entendue, reconnue et protégée.",
+    long: "Les travailleurs font tourner le pays sans entendre leur voix dans le débat public. Soignants, enseignants, agriculteurs, artisans, employés, cadres, indépendants. Ils font vivre la France, cotisent, élèvent leurs enfants, et voient leur travail perdre en reconnaissance et en pouvoir d'achat. L'automatisation et l'intelligence artificielle transforment leurs métiers plus vite que les institutions ne s'adaptent. Nous refusons que cette transition se fasse sur leur dos. Nous voulons reconstruire la dignité du travail, protéger les plus exposés, et faire en sorte que chaque effort trouve sa juste reconnaissance.",
     pts: [
       "Faire du travail le premier vecteur de pouvoir d'achat.",
-      "Soutenir l'esprit d'entreprise et l'innovation.",
-      "Construire une économie durable et souveraine.",
+      "Anticiper et accompagner les mutations technologiques.",
+      "Protéger les travailleurs contre la précarisation accélérée.",
     ],
   },
   {
-    num: 'V', title: 'Gouvernance', tag: "Responsabilité",
+    num: 'III',
+    title: 'Les soins',
+    tag: "L'humain au cœur",
+    icon: Heart,
+    vision: "La santé physique et mentale ne doit souffrir d'aucune fracture territoriale ni sociale.",
+    long: "Prendre soin est une valeur civilisationnelle qui dépasse la seule question de la santé. C'est la manière dont une société traite ses plus fragiles, ses malades, ses âgés, ses enfants. Nous défendons un système de soins solidaire où chacun trouve une réponse, partout sur le territoire. Il est temps de redonner du sens et des moyens à ceux qui nous soignent, et d'assurer une présence médicale dans chaque région. La santé mentale, longtemps négligée, doit devenir une priorité. Prendre soin, c'est aussi la condition première du vivre ensemble.",
+    pts: [
+      "Soutenir et valoriser nos soignants au quotidien.",
+      "Rapprocher la médecine de chaque citoyen, partout.",
+      "Placer la santé mentale au niveau des autres priorités sanitaires.",
+    ],
+  },
+  {
+    num: 'IV',
+    title: 'La justice',
+    tag: 'Confiance et paix',
+    icon: Scale,
+    vision: "La justice est le ciment de notre pacte social. Sans elle, pas de vivre ensemble possible.",
+    long: "Nous œuvrons pour une justice qui dispose des moyens d'agir vite et bien. Restaurer l'autorité de l'institution judiciaire est indispensable pour assurer la tranquillité publique et protéger les plus vulnérables. La justice du quotidien, celle qui règle les petits litiges, les conflits de voisinage, les infractions ordinaires, doit redevenir accessible, lisible et rapide. Sans justice perçue comme juste, la paix sociale s'effrite. C'est cette confiance dans les institutions que nous voulons reconstruire.",
+    pts: [
+      "Renforcer les moyens pour une justice plus agile.",
+      "Garantir l'égalité de chaque citoyen devant la loi.",
+      "Rendre la justice du quotidien plus accessible et plus rapide.",
+    ],
+  },
+  {
+    num: 'V',
+    title: 'La gouvernance',
+    tag: 'Responsabilité et méthode',
     icon: Search,
-    vision: "La confiance entre citoyens et élus doit redevenir la règle.",
-    long: "Nous prônons une gestion publique rigoureuse et éthique. Chaque décision doit être guidée par l'efficacité et l'utilité réelle pour les Français. La transparence et la responsabilité sont les piliers de notre engagement.",
+    vision: "La confiance entre citoyens et élus doit redevenir la règle, non l'exception.",
+    long: "Nous prônons une gestion publique rigoureuse et éthique. Chaque décision doit être guidée par l'efficacité et l'utilité réelle pour les Français. La transparence, la responsabilité et la méthode sont les piliers de notre engagement. La lutte contre le court-termisme politique, qui sacrifie l'avenir aux prochaines échéances, est une priorité. Moderniser l'action publique, évaluer rigoureusement les politiques menées, rendre des comptes. Voilà ce que la majorité silencieuse attend de ceux qui gouvernent.",
     pts: [
       "Renforcer l'éthique et la transparence de l'action publique.",
       "Évaluer l'impact réel de chaque politique menée.",
@@ -70,7 +80,7 @@ const NosPiliers = () => {
     <>
       <SEO
         title="Nos piliers — UNISSONS"
-        description="Éducation, Santé, Justice, Économie, Gouvernance — les cinq chantiers où la France attend autre chose que des postures."
+        description="Éducation, travailleurs, soins, justice, gouvernance. Cinq chantiers concrets et un horizon commun : le vivre ensemble."
         url="https://mouvement-unissons.fr/nos-piliers"
       />
 
@@ -89,13 +99,13 @@ const NosPiliers = () => {
           letterSpacing: '-0.025em', maxWidth: 780,
           animation: 'up .7s ease both',
         }}>
-          Cinq piliers.<br />Une conviction.
+          Cinq piliers.<br />Un horizon commun.
         </h1>
         <p className="rv" style={{
           fontSize: '1.05rem', color: C.cream,
-          maxWidth: 560, lineHeight: 1.7,
+          maxWidth: 580, lineHeight: 1.7,
         }}>
-          Les cinq chantiers où la France attend autre chose que des postures — et où nous portons des solutions concrètes, construites avec ceux qui vivent le terrain.
+          Cinq chantiers où la France attend autre chose que des postures, traversés par une même finalité : le vivre ensemble.
         </p>
       </header>
 
@@ -189,8 +199,13 @@ const NosPiliers = () => {
         </div>
       </section>
 
-      <section style={{ padding: '96px 24px', background: C.surface, borderTop: `1px solid ${C.border}`, textAlign: 'center' }}>
-        <div style={{ maxWidth: 540, margin: '0 auto' }}>
+      <section style={{
+        padding: '96px 24px',
+        background: C.surface,
+        borderTop: `1px solid ${C.border}`,
+        textAlign: 'center',
+      }}>
+        <div style={{ maxWidth: 560, margin: '0 auto' }}>
           <div className="rv" style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
             <Star size={24} />
           </div>
@@ -202,7 +217,7 @@ const NosPiliers = () => {
             Ces priorités vous parlent ?
           </h2>
           <p className="rv" style={{ color: C.cream, marginBottom: 32, fontSize: '1rem', lineHeight: 1.7 }}>
-            Rejoignez le mouvement. Nous avons besoin de toutes les compétences — et de toutes les voix.
+            Rejoignez le mouvement. Nous avons besoin de toutes les compétences et de toutes les voix.
           </p>
           <Link to="/rejoindre" className="btn-accent" style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,
