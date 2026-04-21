@@ -134,7 +134,7 @@ export const Footer = () => (
           onMouseLeave={e => e.currentTarget.style.color = C.textD}>Politique de confidentialité</Link>
 
         <div style={{ display: 'flex', gap: 10, marginTop: 6 }}>
-          <a href="https://x.com/PartiUnissons" target="_blank" rel="noopener noreferrer" aria-label="X"
+          <a href="https://x.com/UnissonsFr" target="_blank" rel="noopener noreferrer" aria-label="X"
             style={{ width: 34, height: 34, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${C.border}`, color: C.textD, transition: 'all .2s' }}
             onMouseEnter={e => { e.currentTarget.style.color = C.red; e.currentTarget.style.borderColor = C.red; }}
             onMouseLeave={e => { e.currentTarget.style.color = C.textD; e.currentTarget.style.borderColor = C.border; }}>

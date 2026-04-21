@@ -70,7 +70,7 @@ export const SEO = ({ title, description, url = 'https://mouvement-unissons.fr' 
     m('og:locale', 'fr_FR', true);
     m('og:site_name', 'UNISSONS', true);
     m('twitter:card', 'summary_large_image');
-    m('twitter:site', '@PartiUnissons');
+    m('twitter:site', '@UnissonsFr');
     m('twitter:title', title);
     m('twitter:description', description);
     let canonical = document.querySelector('link[rel="canonical"]');
