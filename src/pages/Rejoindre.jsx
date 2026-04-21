@@ -81,7 +81,7 @@ const Rejoindre = () => {
                 Aidez-nous à faire connaître le mouvement :
               </p>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 36 }}>
-                <a href="https://x.com/PartiUnissons" target="_blank" rel="noopener noreferrer"
+                <a href="https://x.com/UnissonsFr" target="_blank" rel="noopener noreferrer"
                   className="btn-secondary" style={{
                     borderRadius: 8, padding: '12px 22px',
                     fontSize: '.88rem', cursor: 'pointer',
